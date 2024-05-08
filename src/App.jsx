@@ -1,7 +1,22 @@
-import ProductCard from "./ProductCard"
+import ProductCard from "./ProductCard";
 
-function App(){
-  return <ProductCard></ProductCard>
+function App() {
+  return (
+    <div className="app">
+      <div
+        style={{
+          display: "flex",
+          columnGap: "10px",
+        }}
+      >
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
