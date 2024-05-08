@@ -8,7 +8,7 @@ function ProductCard(props) {
     <div className="product-card">
       <img src={img} alt="çanta görseli" />
       <div className="product-info">
-        <strong>{title}</strong>
+        <strong>{title.slice(0, 20)}...</strong>
         <span>{price}₺</span>
       </div>
     </div>
