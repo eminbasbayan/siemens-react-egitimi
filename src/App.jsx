@@ -1,20 +1,9 @@
-import ProductCard from "./ProductCard";
+import Products from "./components/Products/Products";
 
 function App() {
   return (
     <div className="app">
-      <div
-        style={{
-          display: "flex",
-          columnGap: "10px",
-        }}
-      >
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+      <Products />
     </div>
   );
 }
