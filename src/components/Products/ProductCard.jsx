@@ -2,25 +2,23 @@ import PropTypes from "prop-types";
 import "./ProductCard.css";
 
 function ProductCard(props) {
+  const { img, title, price } = props;
 
-  console.log(props.myName);
-  
   return (
     <div className="product-card">
-      <img
-        src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-        alt="çanta görseli"
-      />
+      <img src={img} alt="çanta görseli" />
       <div className="product-info">
-        <strong>Title</strong>
-        <span>100₺</span>
+        <strong>{title}</strong>
+        <span>{price}₺</span>
       </div>
     </div>
   );
 }
 
 ProductCard.propTypes = {
-  myName: PropTypes.string
-}
+  img: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.number,
+};
 
 export default ProductCard;
