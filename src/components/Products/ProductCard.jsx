@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./ProductCard.css";
 
 function ProductCard(props) {
@@ -16,6 +17,10 @@ function ProductCard(props) {
       </div>
     </div>
   );
+}
+
+ProductCard.propTypes = {
+  myName: PropTypes.string
 }
 
 export default ProductCard;
