@@ -1,5 +1,7 @@
+import ProductCard from "./ProductCard"
+
 function App(){
-  return <h1>My First Component</h1>
+  return <ProductCard></ProductCard>
 }
 
 export default App
