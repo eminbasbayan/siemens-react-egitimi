@@ -2,13 +2,11 @@ import ProductCard from "./ProductCard";
 import "./Products.css";
 
 function Products() {
+  const fullName = "Emin Başbayan";
+
   return (
     <div className="products">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      <ProductCard myName={fullName} />
     </div>
   );
 }
