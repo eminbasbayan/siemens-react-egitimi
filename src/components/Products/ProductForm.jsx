@@ -1,6 +1,7 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-function ProductForm() {
+function ProductForm({ products, setProducts }) {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
@@ -17,8 +18,19 @@ function ProductForm() {
     setPrice(event.target.value);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newProduct = {
+      id: products[products.length - 1].id + 1,
+      image: image,
+      title: title,
+      price: Number(price),
+    };
+    setProducts([newProduct, ...products]);
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label className="form-label">Product Image</label>
         <input
@@ -52,5 +64,10 @@ function ProductForm() {
     </form>
   );
 }
+
+ProductForm.propTypes = {
+  products: PropTypes.array,
+  setProducts: PropTypes.func,
+};
 
 export default ProductForm;

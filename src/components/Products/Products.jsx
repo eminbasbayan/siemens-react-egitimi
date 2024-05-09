@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import "./Products.css";
 import ProductForm from "./ProductForm";
 
-const products = [
+let data = [
   {
     id: 1,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -48,10 +48,11 @@ const products = [
 
 function Products() {
   const [title, setTitle] = useState("Default Title");
+  const [products, setProducts] = useState(data);
 
   return (
     <div className="products-wrapper">
-      <ProductForm />
+      <ProductForm products={products} setProducts={setProducts} />
       <div className="products">
         {products.map((item) => (
           <ProductCard
