@@ -1,24 +1,25 @@
 // import Products from "./components/Products/Products";
 
-function App() {
-  let products = [{ id: 1, name: "Çanta" }];
-  console.log(products);
-  
-  function handleClick() {
-    console.log("run!");
-  }
+import { useState } from "react";
 
-  function addNewProduct(newProduct) {
-    products = [...products, newProduct];
-    console.log(products);
+// hooks
+function App() {
+  //const [state, setState] = useState(initialValue);
+  const [name, setName] = useState("Emin");
+
+  // let name = "Emin"; // Ahmet
+
+  console.log("component yeniden render edildi!");
+
+  function handleClick() {
+    // name = "Ahmet";
+    setName("Ahmet");
   }
 
   return (
     <div className="app">
-      <button onClick={handleClick}>Sepete Ekle</button>
-      <button onClick={() => addNewProduct({ id: 2, name: "Çorap" })}>
-        Yeni Ürün Ekle
-      </button>
+      <p>{name}</p>
+      <button onClick={handleClick}>İsmi Değiştir</button>
     </div>
   );
 }
