@@ -7,24 +7,15 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [count, setCount] = useState(0);
   const [title, setTitle] = useState("Çorap");
-  
-  useEffect(() => {
-    console.log("İlk yüklendiğinde çalıştı!");
-  }, []);
 
   useEffect(() => {
-    console.log("İlk yüklendiğinde ve güncellendiğinde çalıştı!");
-  }, [count]);
-
-  useEffect(() => {
-    
-    // component ekrandan kaldırıldığı çalıştı!
-
-    // clean-up function
-    return () => {
-      console.log("Ekrandan kaldırıldığında");
-      // WebSocket.CLOSED();
-    };
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err))
+      .finally(() => console.log("işlem tamamlandı"));
   }, []);
 
   return (
