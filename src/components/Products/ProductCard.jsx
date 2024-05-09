@@ -11,7 +11,7 @@ function ProductCard(props) {
       <div className="product-info">
         <strong>{title.slice(0, 20)}...</strong>
         <span>{price}₺</span>
-        <Button backgroundColor="red" size="large" title="Ekle" />
+        <Button className="hidden" background="danger" size="sm" title="Ekle" />
       </div>
     </div>
   );

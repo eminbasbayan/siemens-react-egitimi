@@ -1,21 +1,19 @@
 import PropTypes from "prop-types";
+import "./Button.css";
 
-function Button(props) {
-  const style = {
-    backgroundColor: props.backgroundColor,
-    padding: props.size === "large" ? "16px 32px" : "12px",
-    fonSize: props.size === "large" ? "16px" : "12px",
-  };
-  
-  return (
-    <button style={style}>{props.title ? props.title : "Sepete Ekle"}</button>
-  );
+function Button({ background, size, title, className }) {
+  const sizeClass = `btn-${size}`;
+  const backgroundClass = `btn-${background}`;
+  const classes = `${sizeClass} ${backgroundClass} ${className}`;
+
+  return <button className={classes}>{title ? title : "Sepete Ekle"}</button>;
 }
 
 Button.propTypes = {
-  backgroundColor: PropTypes.string,
+  background: PropTypes.string,
   size: PropTypes.string,
   title: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Button;

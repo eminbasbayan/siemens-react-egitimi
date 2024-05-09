@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root{
+#root {
   width: 100%;
 }
 
@@ -68,4 +68,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.hidden {
+  display: none;
 }
