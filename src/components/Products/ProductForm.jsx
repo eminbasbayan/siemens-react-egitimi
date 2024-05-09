@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const initialValues = {
   image: "",
   title: "",
-  price: 0,
+  price: "",
 };
 
 function ProductForm({ products, setProducts }) {
@@ -19,6 +19,16 @@ function ProductForm({ products, setProducts }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    const isFormValid = Object.values(productInputs).every(
+      (value) => value.trim() !== ""
+    );
+
+    if (!isFormValid) {
+      console.error("Tüm alanlar dolu olmalı.");
+      return;
+    }
+
     const newProduct = {
       id: Math.random(),
       image: productInputs.image,
@@ -28,8 +38,6 @@ function ProductForm({ products, setProducts }) {
     setProducts([...products, newProduct]);
     setProductInputs(initialValues);
   }
-
-  console.log(productInputs);
 
   return (
     <form onSubmit={handleSubmit}>
