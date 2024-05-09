@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 import "./ProductCard.css";
 
 function ProductCard(props) {
-  const { img, price, title } = props;
+  const { id, img, price, title, category, handleDeleteProduct } = props;
 
   return (
     <div className="product-card">
@@ -11,8 +11,13 @@ function ProductCard(props) {
       <div className="product-info">
         <strong>{title.slice(0, 20)}...</strong>
         <span>{price}₺</span>
-        <Button background="success" size="sm">
-          <strong>Change Title</strong>
+        <b>{category}</b>
+        <Button
+          background="danger"
+          size="sm"
+          onClick={() => handleDeleteProduct(id)}
+        >
+          <strong>Delete</strong>
         </Button>
       </div>
     </div>
@@ -20,11 +25,12 @@ function ProductCard(props) {
 }
 
 ProductCard.propTypes = {
+  id: PropTypes.number,
   img: PropTypes.string,
   title: PropTypes.string,
+  category: PropTypes.string,
   price: PropTypes.number,
-  setTitle: PropTypes.func,
-  pTitle: PropTypes.string,
+  handleDeleteProduct: PropTypes.func,
 };
 
 export default ProductCard;
