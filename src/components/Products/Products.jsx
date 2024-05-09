@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProductCard from "./ProductCard";
 import "./Products.css";
+import ProductForm from "./ProductForm";
 
 const products = [
   {
@@ -49,17 +50,20 @@ function Products() {
   const [title, setTitle] = useState("Default Title");
 
   return (
-    <div className="products">
-      {products.map((item) => (
-        <ProductCard
-          key={item.id}
-          img={item.image}
-          price={item.price}
-          title={title}
-          pTitle={item.title}
-          setTitle={setTitle}
-        />
-      ))}
+    <div className="products-wrapper">
+      <ProductForm />
+      <div className="products">
+        {products.map((item) => (
+          <ProductCard
+            key={item.id}
+            img={item.image}
+            price={item.price}
+            title={title}
+            pTitle={item.title}
+            setTitle={setTitle}
+          />
+        ))}
+      </div>
     </div>
   );
 }
