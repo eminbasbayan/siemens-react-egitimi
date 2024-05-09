@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 const initialValues = {
   image: "",
@@ -26,6 +27,10 @@ function ProductForm({ products, setProducts }) {
 
     if (!isFormValid) {
       console.error("Tüm alanlar dolu olmalı.");
+      toast.error("Tüm alanlar dolu olmalı.", {
+        autoClose: 2000,
+        position: "bottom-right"
+      });
       return;
     }
 
