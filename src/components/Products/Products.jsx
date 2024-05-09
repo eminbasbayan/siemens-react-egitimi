@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ProductCard from "./ProductCard";
 import "./Products.css";
 
@@ -45,18 +46,20 @@ const products = [
 ];
 
 function Products() {
+  const [title, setTitle] = useState("Default Title");
+
   return (
     <div className="products">
-      {products.map((item) => {
-        return (
-          <ProductCard
-            img={item.image}
-            title={item.title}
-            price={item.price}
-            key={item.id}
-          />
-        );
-      })}
+      {products.map((item) => (
+        <ProductCard
+          key={item.id}
+          img={item.image}
+          price={item.price}
+          title={title}
+          pTitle={item.title}
+          setTitle={setTitle}
+        />
+      ))}
     </div>
   );
 }
