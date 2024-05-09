@@ -21,12 +21,12 @@ function ProductForm({ products, setProducts }) {
   function handleSubmit(event) {
     event.preventDefault();
     const newProduct = {
-      id: products[products.length - 1].id + 1,
+      id: Math.random(),
       image: image,
-      title: title,
       price: Number(price),
+      title: title,
     };
-    setProducts([newProduct, ...products]);
+    setProducts([...products, newProduct]);
   }
 
   return (
