@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Button from "../UI/Button";
 import "./ProductCard.css";
 
 function ProductCard(props) {
@@ -10,6 +11,7 @@ function ProductCard(props) {
       <div className="product-info">
         <strong>{title.slice(0, 20)}...</strong>
         <span>{price}₺</span>
+        <Button backgroundColor="red" size="large" title="Ekle" />
       </div>
     </div>
   );
