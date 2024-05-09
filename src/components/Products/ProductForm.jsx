@@ -1,33 +1,35 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
+const initialValues = {
+  image: "",
+  title: "",
+  price: 0,
+};
+
 function ProductForm({ products, setProducts }) {
-  const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(0);
+  const [productInputs, setProductInputs] = useState(initialValues);
 
-  function handleImageChange(event) {
-    setImage(event.target.value);
-  }
-
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
-  }
-
-  function handlePriceChange(event) {
-    setPrice(event.target.value);
+  function handleChange(event) {
+    setProductInputs({
+      ...productInputs,
+      [event.target.name]: event.target.value,
+    });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     const newProduct = {
       id: Math.random(),
-      image: image,
-      price: Number(price),
-      title: title,
+      image: productInputs.image,
+      price: Number(productInputs.price),
+      title: productInputs.title,
     };
     setProducts([...products, newProduct]);
+    setProductInputs(initialValues);
   }
+
+  console.log(productInputs);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -36,27 +38,30 @@ function ProductForm({ products, setProducts }) {
         <input
           type="text"
           className="form-control"
-          onChange={handleImageChange}
+          onChange={handleChange}
+          name="image"
+          value={productInputs.image}
         />
-        {image}
       </div>
       <div className="mb-3">
         <label className="form-label">Product Title</label>
         <input
           type="text"
           className="form-control"
-          onChange={handleTitleChange}
+          onChange={handleChange}
+          name="title"
+          value={productInputs.title}
         />
-        {title}
       </div>
       <div className="mb-3">
         <label className="form-label">Product Price</label>
         <input
           type="number"
           className="form-control"
-          onChange={handlePriceChange}
+          onChange={handleChange}
+          name="price"
+          value={productInputs.price}
         />
-        {price}
       </div>
       <button type="submit" className="btn btn-primary">
         Yeni Ürün Ekle
