@@ -1,15 +1,22 @@
-import React from "react";
+import { Fragment, useState } from "react";
 
 function Counter() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <Fragment>
       <button onClick={() => setCount(count + 1)}>+</button>
       <strong>{count}</strong>
       <button onClick={() => setCount(count - 1)}>-</button>
-    </div>
+    </Fragment>
   );
+  //   return (
+  //     <>
+  //       <button onClick={() => setCount(count + 1)}>+</button>
+  //       <strong>{count}</strong>
+  //       <button onClick={() => setCount(count - 1)}>-</button>
+  //     </>
+  //   );
 }
 
 export default Counter;
