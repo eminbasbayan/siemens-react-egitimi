@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
-import "./Button.css";
 
 function Button({ background, size, className, children, onClick }) {
   const sizeClass = `btn-${size}`;
   const backgroundClass = `btn-${background}`;
-  const classes = `${sizeClass} ${backgroundClass} ${className}`;
+  const classes = `${sizeClass} btn ${backgroundClass} ${className}`;
 
   return (
     <button className={classes} onClick={onClick}>
