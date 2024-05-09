@@ -44,20 +44,6 @@ const products = [
   },
 ];
 
-console.log(products);
-
-const newProducts = products.map((item) => {
-  const newItem = {
-    id: item.id,
-    title: item.title,
-    price: item.price,
-    img: item.image,
-  };
-  return newItem;
-});
-
-console.log(newProducts);
-
 function Products() {
   return (
     <div className="products">
