@@ -1,6 +1,11 @@
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
   gap: 15px;
   padding: 10px;
+}
+
+.products img{
+  height: 200px;
+  object-fit: contain;
 }

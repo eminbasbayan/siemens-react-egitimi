@@ -29,7 +29,6 @@ function ProductForm({ products, setProducts }) {
       console.error("Tüm alanlar dolu olmalı.");
       toast.error("Tüm alanlar dolu olmalı.", {
         autoClose: 2000,
-        position: "bottom-right"
       });
       return;
     }

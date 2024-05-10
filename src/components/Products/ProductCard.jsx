@@ -3,19 +3,22 @@ import Button from "../UI/Button";
 import "./ProductCard.css";
 
 function ProductCard(props) {
-  const { id, img, price, title, category, handleDeleteProduct } = props;
+  const { id, img, price, title, handleDeleteProduct } = props;
 
   return (
-    <div className="product-card">
-      <img src={img} alt="çanta görseli" />
-      <div className="product-info">
-        <strong>{title.slice(0, 20)}...</strong>
-        <span>{price}₺</span>
-        <b>{category}</b>
+    <div className="card">
+      <img src={img} className="card-img-top" alt="..." />
+      <div className="card-body">
+        <h5 className="card-title">{title.slice(0, 15)}...</h5>
+        <p className="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card`s content.
+        </p>
+        <p className="card-text">{price}₺</p>
         <Button
           background="danger"
-          size="sm"
           onClick={() => handleDeleteProduct(id)}
+          className={"w-100"}
         >
           <strong>Delete</strong>
         </Button>
