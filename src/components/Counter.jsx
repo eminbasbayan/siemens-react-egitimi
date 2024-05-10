@@ -1,23 +1,18 @@
 import { Fragment } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { arttir, azalt } from "../redux/slices/counterSlice";
 
 function Counter() {
-  const { count, value } = useSelector((state) => state.counter);
-  console.log(value);
+  const { count } = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
+
   return (
     <Fragment>
-      <button onClick={() => {}}>+</button>
+      <button onClick={() => dispatch(arttir())}>+</button>
       <strong>{count}</strong>
-      <button onClick={() => {}}>-</button>
+      <button onClick={() => dispatch(azalt())}>-</button>
     </Fragment>
   );
-  //   return (
-  //     <>
-  //       <button onClick={() => setCount(count + 1)}>+</button>
-  //       <strong>{count}</strong>
-  //       <button onClick={() => setCount(count - 1)}>-</button>
-  //     </>
-  //   );
 }
 
 export default Counter;
