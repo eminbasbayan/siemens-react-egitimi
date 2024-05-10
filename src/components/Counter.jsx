@@ -1,13 +1,14 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
+import { useSelector } from "react-redux";
 
 function Counter() {
-  const [count, setCount] = useState(0);
-
+  const { count, value } = useSelector((state) => state.counter);
+  console.log(value);
   return (
     <Fragment>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => {}}>+</button>
       <strong>{count}</strong>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => {}}>-</button>
     </Fragment>
   );
   //   return (

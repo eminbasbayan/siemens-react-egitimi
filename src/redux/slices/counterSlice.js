@@ -4,6 +4,7 @@ const counterSlice = createSlice({
   name: "counter",
   initialState: {
     count: 0,
+    value: 10,
   },
   reducers: {
     arttir: (state) => {

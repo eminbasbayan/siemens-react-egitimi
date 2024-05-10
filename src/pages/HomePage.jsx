@@ -1,8 +1,10 @@
+import Counter from "../components/Counter";
 
 const HomePage = () => {
   return (
     <div className="home-page">
       <h1>Ana Sayfaya Hoşgeldiniz!</h1>
+      <Counter />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed suscipit
         eligendi quaerat nulla harum nobis saepe, atque soluta. Tempore maxime
