@@ -4,6 +4,7 @@ import Header from "./components/Layout/Header";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
 import "react-toastify/dist/ReactToastify.css";
+import CartPage from "./pages/CartPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,6 +15,10 @@ function App() {
     {
       path: "/products",
       element: <ProductsPage />,
+    },
+    {
+      path: "/cart",
+      element: <CartPage />,
     },
   ]);
 
