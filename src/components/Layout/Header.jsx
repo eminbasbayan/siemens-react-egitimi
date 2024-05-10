@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -17,19 +17,24 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link  ${isActive && "fw-bold"}`
+                }
+                to="/"
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/products">
+              <NavLink className="nav-link" to="/products">
                 Products
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cart">
+              <NavLink className="nav-link" to="/cart">
                 Cart
-              </Link>
+              </NavLink>
             </li>
           </ul>
 

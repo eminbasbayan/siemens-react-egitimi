@@ -11,3 +11,7 @@
 .products-wrapper input {
   width: 200px;
 }
+
+header .active{
+  color: red !important;
+}
