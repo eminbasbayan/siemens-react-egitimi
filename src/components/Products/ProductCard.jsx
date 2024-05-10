@@ -1,13 +1,16 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../redux/slices/cartSlice";
 import Button from "../UI/Button";
 import "./ProductCard.css";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function ProductCard(props) {
-  const { item, handleDeleteProduct, addToCart } = props;
+  const { item, handleDeleteProduct } = props;
   const { id, image, price, title, description } = item;
   const navigate = useNavigate();
   const cartItem = { id, image, price, title, description };
+  const dispatch = useDispatch();
 
   return (
     <div className="card">
@@ -20,7 +23,7 @@ function ProductCard(props) {
         <p className="card-text">{price}₺</p>
         <Button
           background="primary"
-          onClick={() => addToCart(cartItem)}
+          onClick={() => dispatch(addToCart(cartItem))}
           className={"w-100 mb-2"}
         >
           <strong>Add To Cart</strong>

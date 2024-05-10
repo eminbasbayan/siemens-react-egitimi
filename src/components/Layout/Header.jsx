@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
-
+  const cart = useSelector((state) => state.cart);
+ 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -45,7 +47,7 @@ const Header = () => {
               onClick={() => navigate("/cart")}
             >
               <i className="bi bi-cart3"></i>
-              <span className="badge bg-danger">{0}</span>
+              <span className="badge bg-danger">{cart.cartItems.length}</span>
             </button>
             <button className="btn btn-outline-secondary" type="button">
               <i className="bi bi-box-arrow-in-right"></i> Giriş Yap
