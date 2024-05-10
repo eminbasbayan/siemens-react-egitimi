@@ -40,6 +40,18 @@ function App() {
         {
           path: "/product/:id",
           element: <ProductDetailsPage />,
+          loader: async ({ params }) => {
+            const res = await fetch(
+              `https://fakestoreapi.com/products/${params.id}`
+            );
+            const data = await res.json();
+
+            if (!res.ok) {
+              throw new Error("Something went wrong!");
+            }
+
+            return data;
+          },
         },
       ],
     },

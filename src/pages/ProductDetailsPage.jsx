@@ -1,24 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const ProductDetailsPage = () => {
-  const [product, setProduct] = useState({
-    title: "",
-    price: 0,
-    description: "",
-    image: "",
-  });
-
-  const params = useParams();
-
-  useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setProduct(data))
-      .catch((err) => console.log(err));
-  }, [params.id]);
-
-  console.log(params);
+  const data = useLoaderData();
+  const [product] = useState(data);
 
   return (
     <div className="container py-5">
