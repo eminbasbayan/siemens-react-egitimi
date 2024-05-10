@@ -6,7 +6,7 @@ import "./ProductCard.css";
 import { useDispatch } from "react-redux";
 
 function ProductCard(props) {
-  const { item, handleDeleteProduct } = props;
+  const { item, handleDeleteProduct, cart } = props;
   const { id, image, price, title, description } = item;
   const navigate = useNavigate();
   const cartItem = { id, image, price, title, description };
@@ -21,13 +21,15 @@ function ProductCard(props) {
         </h5>
         <p className="card-text">{description.slice(0, 40)}...</p>
         <p className="card-text">{price}₺</p>
-        <Button
-          background="primary"
-          onClick={() => dispatch(addToCart(cartItem))}
-          className={"w-100 mb-2"}
-        >
-          <strong>Add To Cart</strong>
-        </Button>
+        {!cart && (
+          <Button
+            background="primary"
+            onClick={() => dispatch(addToCart({ cartItem }))}
+            className={"w-100 mb-2"}
+          >
+            <strong>Add To Cart</strong>
+          </Button>
+        )}
         <Button
           background="danger"
           onClick={() => handleDeleteProduct(id)}
@@ -43,6 +45,7 @@ function ProductCard(props) {
 ProductCard.propTypes = {
   item: PropTypes.object,
   addToCart: PropTypes.func,
+  cart: PropTypes.bool,
   handleDeleteProduct: PropTypes.func,
 };
 
