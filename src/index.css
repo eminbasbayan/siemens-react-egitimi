@@ -15,3 +15,15 @@
 header .active{
   color: red !important;
 }
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.main-layout main{
+  padding-top: 75px !important;
+}
