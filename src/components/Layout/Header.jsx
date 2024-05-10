@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,24 +15,19 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                About
-              </a>
+              <Link className="nav-link" to="/products">
+                Products
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Services
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact
-              </a>
+              <Link className="nav-link" to="/cart">
+                Cart
+              </Link>
             </li>
           </ul>
 
