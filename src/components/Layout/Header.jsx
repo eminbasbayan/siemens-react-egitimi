@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -32,7 +34,11 @@ const Header = () => {
           </ul>
 
           <div className="d-flex align-items-center">
-            <button className="btn btn-outline-secondary me-1" type="button">
+            <button
+              className="btn btn-outline-secondary me-1"
+              type="button"
+              onClick={() => navigate("/cart")}
+            >
               <i className="bi bi-cart3"></i>
               <span className="badge bg-danger">{0}</span>
             </button>
