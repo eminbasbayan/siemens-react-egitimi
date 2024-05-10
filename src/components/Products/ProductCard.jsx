@@ -4,18 +4,27 @@ import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 
 function ProductCard(props) {
-  const { id, img, price, title, description, handleDeleteProduct } = props;
+  const { item, handleDeleteProduct, addToCart } = props;
+  const { id, image, price, title, description } = item;
   const navigate = useNavigate();
+  const cartItem = { id, image, price, title, description };
 
   return (
     <div className="card">
-      <img src={img} className="card-img-top" alt="..." />
+      <img src={image} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title" onClick={() => navigate(`/product/${id}`)}>
           {title.slice(0, 15)}...
         </h5>
         <p className="card-text">{description.slice(0, 40)}...</p>
         <p className="card-text">{price}₺</p>
+        <Button
+          background="primary"
+          onClick={() => addToCart(cartItem)}
+          className={"w-100 mb-2"}
+        >
+          <strong>Add To Cart</strong>
+        </Button>
         <Button
           background="danger"
           onClick={() => handleDeleteProduct(id)}
@@ -29,12 +38,8 @@ function ProductCard(props) {
 }
 
 ProductCard.propTypes = {
-  id: PropTypes.number,
-  img: PropTypes.string,
-  title: PropTypes.string,
-  category: PropTypes.string,
-  price: PropTypes.number,
-  description: PropTypes.string,
+  item: PropTypes.object,
+  addToCart: PropTypes.func,
   handleDeleteProduct: PropTypes.func,
 };
 

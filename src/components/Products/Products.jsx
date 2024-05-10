@@ -6,26 +6,11 @@ import "./Products.css";
 
 function Products(props) {
   const [products, setProducts] = useState(props.products);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [cart, setCart] = useState([]);
 
-  // const fetchProducts = async () => {
-  //   setIsLoading(true);
-  //   setProducts([]);
-  //   try {
-  //     const res = await fetch("https://fakestoreapi.com/products/");
-  //     const data = await res.json();
-  //     setProducts(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   } finally {
-  //     console.log("İşlem tamamlandı!");
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchProducts();
-  // }, []);
+  function addToCart(cartItem) {
+    setCart([...cart, cartItem]);
+  }
 
   function handleDeleteProduct(productId) {
     const filteredProducts = products.filter((item) => {
@@ -38,18 +23,13 @@ function Products(props) {
     <div className="products-wrapper">
       <ProductForm products={products} setProducts={setProducts} />
       <br />
-      {/* {isLoading && <Spinner type="danger" />} */}
       <div className="products">
         {products
           .map((item) => (
             <ProductCard
               key={item.id}
-              id={item.id}
-              img={item.image}
-              price={item.price}
-              title={item.title}
-              category={item.category}
-              description={item.description}
+              item={item}
+              addToCart={addToCart}
               handleDeleteProduct={handleDeleteProduct}
             />
           ))
