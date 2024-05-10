@@ -50,6 +50,7 @@ function Products() {
               price={item.price}
               title={item.title}
               category={item.category}
+              description={item.description}
               handleDeleteProduct={handleDeleteProduct}
             />
           ))
