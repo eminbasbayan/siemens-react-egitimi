@@ -5,7 +5,16 @@
   padding: 10px;
 }
 
-.products img{
+.products img {
   height: 150px;
   object-fit: contain;
+}
+
+.products .card h5 {
+  cursor: pointer;
+  transition: ease opacity 0.5s;
+}
+
+.products .card h5:hover {
+  opacity: 0.5;
 }
