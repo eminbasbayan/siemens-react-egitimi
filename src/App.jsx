@@ -1,30 +1,40 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ToastContainer } from "react-toastify";
-// import Products from "./components/Products/Products";
 import "react-toastify/dist/ReactToastify.css";
-// import { WebSocket } from "vite";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [title, setTitle] = useState("Çorap");
+  const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err))
-      .finally(() => console.log("işlem tamamlandı"));
-  }, []);
+  // const fetchUsers = () => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data))
+  //     .catch((err) => console.log(err))
+  //     .finally(() => console.log("İşlem tamamlandı!"));
+  // };
+
+  const fetchUsers = async () => {
+    try {
+      const res = await fetch("https://jsonplaceholder.typicode.com/users");
+      const data = await res.json();
+      console.log(data);
+      setUsers(data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      console.log("İşlem tamamlandı!");
+    }
+  };
 
   return (
     <div className="app">
-      <button onClick={() => setCount(count + 1)}>Arttır</button>
-      <p>{count}</p>
-      <button onClick={() => setTitle("Şapla")}>Title Güncelle</button>
-      {title}
-      {/* <Products /> */}
+      <button className="btn btn-primary" onClick={fetchUsers}>
+        Get Users
+      </button>
+      <br />
+      {users?.map((user) => (
+        <p key={user.id}>{user.name}</p>
+      ))}
       <ToastContainer />
     </div>
   );
