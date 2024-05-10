@@ -4,28 +4,33 @@ import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
 import "react-toastify/dist/ReactToastify.css";
 import CartPage from "./pages/CartPage";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
-    },
-    {
-      path: "/products",
-      element: <ProductsPage />,
-    },
-    {
-      path: "/cart",
-      element: <CartPage />,
+      element: <MainLayout />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        {
+          path: "/products",
+          element: <ProductsPage />,
+        },
+        {
+          path: "/cart",
+          element: <CartPage />,
+        },
+      ],
     },
   ]);
 
   return (
     <div className="app">
-      <section className="content">
-        <RouterProvider router={router} />
-      </section>
+      <RouterProvider router={router} />
       <ToastContainer />
     </div>
   );
