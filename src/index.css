@@ -1,4 +1,4 @@
-.app {
+.app .content {
   padding: 20px;
 }
 
@@ -8,6 +8,6 @@
   flex-direction: column;
 }
 
-.products-wrapper input{
+.products-wrapper input {
   width: 200px;
 }
