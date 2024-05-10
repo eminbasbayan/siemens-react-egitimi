@@ -10,7 +10,7 @@ function ProductCard(props) {
       <img src={img} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{title.slice(0, 15)}...</h5>
-        <p className="card-text">{description.slice(0, 50)}...</p>
+        <p className="card-text">{description.slice(0, 40)}...</p>
         <p className="card-text">{price}₺</p>
         <Button
           background="danger"
