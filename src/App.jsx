@@ -5,12 +5,14 @@ import ProductsPage from "./pages/ProductsPage";
 import "react-toastify/dist/ReactToastify.css";
 import CartPage from "./pages/CartPage";
 import MainLayout from "./layouts/MainLayout";
+import ErrorPage from "./pages/404Page";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
