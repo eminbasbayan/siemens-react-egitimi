@@ -1,32 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import ProductCard from "./ProductCard";
 import ProductForm from "./ProductForm";
-import { data } from "../../data";
 import "./Products.css";
-import Spinner from "../UI/Spinner";
 
-function Products() {
-  const [products, setProducts] = useState(data);
-  const [isLoading, setIsLoading] = useState(false);
+function Products(props) {
+  const [products, setProducts] = useState(props.products);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  const fetchProducts = async () => {
-    setIsLoading(true);
-    setProducts([]);
-    try {
-      const res = await fetch("https://fakestoreapi.com/products/");
-      const data = await res.json();
-      setProducts(data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      console.log("İşlem tamamlandı!");
-      setIsLoading(false);
-    }
-  };
+  // const fetchProducts = async () => {
+  //   setIsLoading(true);
+  //   setProducts([]);
+  //   try {
+  //     const res = await fetch("https://fakestoreapi.com/products/");
+  //     const data = await res.json();
+  //     setProducts(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   } finally {
+  //     console.log("İşlem tamamlandı!");
+  //     setIsLoading(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
   function handleDeleteProduct(productId) {
     const filteredProducts = products.filter((item) => {
@@ -39,7 +38,7 @@ function Products() {
     <div className="products-wrapper">
       <ProductForm products={products} setProducts={setProducts} />
       <br />
-      {isLoading && <Spinner type="danger" />}
+      {/* {isLoading && <Spinner type="danger" />} */}
       <div className="products">
         {products
           .map((item) => (
@@ -59,5 +58,9 @@ function Products() {
     </div>
   );
 }
+
+Products.propTypes = {
+  products: PropTypes.array,
+};
 
 export default Products;
